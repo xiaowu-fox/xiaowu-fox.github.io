@@ -8,6 +8,14 @@ layout: default
   <p class="hero-desc">{{ site.description }}</p>
 </section>
 
+<a class="home-search" href="{{ '/search.html' | relative_url }}">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <circle cx="11" cy="11" r="8"></circle>
+    <path d="M21 21l-4.35-4.35"></path>
+  </svg>
+  <span>搜索文章…</span>
+</a>
+
 <section class="post-list">
   <h2 class="section-title">最新文章</h2>
   {% if site.posts.size == 0 %}
@@ -22,6 +30,11 @@ layout: default
       </div>
       <h3 class="post-card-title">{{ post.title }}</h3>
       <p class="post-card-excerpt">{{ post.excerpt | strip_html | normalize_whitespace | truncate: 110 }}</p>
+      {% if post.tags.size > 0 %}
+      <div class="post-card-tags">
+        {% for tag in post.tags %}<span class="tag-chip">{{ tag }}</span>{% endfor %}
+      </div>
+      {% endif %}
       <span class="post-card-more">阅读全文 &rarr;</span>
     </a>
     {% endfor %}

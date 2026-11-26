@@ -1,6 +1,35 @@
 (function () {
   "use strict";
 
+  /* ===== 明暗主题切换 ===== */
+  function currentTheme() {
+    return document.documentElement.getAttribute("data-theme") === "light" ? "light" : "dark";
+  }
+
+  var themeToggle = document.getElementById("theme-toggle");
+  if (themeToggle) {
+    themeToggle.addEventListener("click", function () {
+      var next = currentTheme() === "light" ? "dark" : "light";
+      document.documentElement.setAttribute("data-theme", next);
+      try { localStorage.setItem("theme", next); } catch (e) {}
+      syncGiscus(next);
+    });
+  }
+
+  /* ===== 评论区 Giscus 主题跟随 ===== */
+  function syncGiscus(theme) {
+    var frame = document.querySelector("iframe.giscus-frame");
+    if (!frame || !frame.contentWindow) return;
+    frame.contentWindow.postMessage(
+      { giscus: { setConfig: { theme: theme || currentTheme() } } },
+      "https://giscus.app"
+    );
+  }
+  window.addEventListener("message", function (event) {
+    if (event.origin !== "https://giscus.app") return;
+    if (event.data && event.data.giscus) syncGiscus();
+  });
+
   /* ===== 阅读进度条 ===== */
   var progressBar = document.getElementById("progress-bar");
 
@@ -86,6 +115,7 @@
     buildToc();
     updateProgress();
     toggleBackTop();
+    syncGiscus();
   });
 
   updateProgress();

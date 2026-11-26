@@ -21,6 +21,14 @@ layout: default
     </div>
   </div>
 
+  {% if page.tags.size > 0 %}
+  <div class="post-tags">
+    {% for tag in page.tags %}
+    <a class="tag-chip" href="{{ '/tags.html' | relative_url }}#{{ tag }}">{{ tag }}</a>
+    {% endfor %}
+  </div>
+  {% endif %}
+
   {% include like.html %}
 
   <nav class="post-nav">
@@ -31,4 +39,6 @@ layout: default
     <a class="next" href="{{ page.next.url | relative_url }}"><span class="nav-label">下一篇</span>{{ page.next.title }}</a>
     {% endif %}
   </nav>
+
+  {% include comments.html %}
 </article>

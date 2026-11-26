@@ -1,0 +1,17 @@
+---
+layout: default
+title: 搜索
+permalink: /search.html
+---
+<section class="search-page">
+  <div class="search-box">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <circle cx="11" cy="11" r="8"></circle>
+      <path d="M21 21l-4.35-4.35"></path>
+    </svg>
+    <input id="search-input" type="search" placeholder="搜索文章标题、标签、内容…" autocomplete="off" autofocus aria-label="搜索文章">
+  </div>
+  <p id="search-status" class="search-status" role="status"></p>
+  <div id="search-results" class="search-results"></div>
+</section>
+<script src="{{ '/assets/js/search.js' | relative_url }}"></script>

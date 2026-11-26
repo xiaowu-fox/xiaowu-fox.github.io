@@ -1,0 +1,31 @@
+---
+layout: default
+title: 标签
+permalink: /tags.html
+---
+<div class="tags-page">
+  {% if site.tags.size == 0 %}
+    <p class="empty">还没有任何标签。</p>
+  {% else %}
+  <div class="tag-cloud">
+    {% for tag in site.tags %}
+    <a class="tag-chip" href="#{{ tag[0] }}">{{ tag[0] }}<span class="tag-count">{{ tag[1].size }}</span></a>
+    {% endfor %}
+  </div>
+
+  {% for tag in site.tags %}
+  <section class="tag-group" id="{{ tag[0] }}">
+    <h2 class="tag-group-title">{{ tag[0] }} <span>（{{ tag[1].size }} 篇）</span></h2>
+    <ul class="tag-post-list">
+      {% for post in tag[1] %}
+      <li>
+        <a href="{{ post.url | relative_url }}">
+          <time>{{ post.date | date: "%Y-%m-%d" }}</time>{{ post.title }}
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+  </section>
+  {% endfor %}
+  {% endif %}
+</div>
