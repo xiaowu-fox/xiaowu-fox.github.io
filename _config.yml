@@ -1,0 +1,40 @@
+# ===== 站点基本信息 =====
+title: 小武的技术笔记
+tagline: 写代码，造东西
+description: 一个关于编程、桌面开发与动手折腾的个人博客
+author: Xiaowu
+lang: zh-CN
+url: "https://xiaowu1688169.github.io"
+baseurl: ""
+
+# 不使用第三方主题，完全自定义布局（零插件依赖）
+theme: null
+
+# ===== 构建设置 =====
+markdown: kramdown
+highlighter: rouge
+permalink: /posts/:year/:month/:day/:title.html
+
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+# ===== 默认 front matter =====
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      lang: zh-CN
+  - scope:
+      path: ""
+    values:
+      layout: default
+
+# ===== 不纳入站点的文件 =====
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - vendor
