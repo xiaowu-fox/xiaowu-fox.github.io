@@ -18,6 +18,6 @@ permalink: /about.html
 
 一名开发者，喜欢把想法变成能用的软件。
 
-代表项目：[柒嘿 · 黑色打字猫](https://github.com/Xiaowu1688169/qihei-typing-cat)，一只陪你打字、动鼠标的桌面宠物。
+代表项目：[柒嘿 · 黑色打字猫](https://github.com/xiaowu-fox/qihei-typing-cat)，一只陪你打字、动鼠标的桌面宠物。
 
-更多项目见我的 [GitHub 主页](https://github.com/Xiaowu1688169)。
+更多项目见我的 [GitHub 主页](https://github.com/xiaowu-fox)。
