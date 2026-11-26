@@ -2,14 +2,14 @@
 <html lang="{{ page.lang | default: site.lang | default: 'zh-CN' }}">
 {% include head.html %}
 <body>
-  <div class="site">
-    {% include header.html %}
-    <main class="content">
-      <div class="wrap">
-        {{ content }}
-      </div>
-    </main>
-    {% include footer.html %}
-  </div>
+  {% include header.html %}
+  <main class="content">
+    <div class="wrap">
+      {{ content }}
+    </div>
+  </main>
+  {% include footer.html %}
+  <button id="back-to-top" type="button" aria-label="回到顶部" title="回到顶部">&uarr;</button>
+  <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
 </body>
 </html>
