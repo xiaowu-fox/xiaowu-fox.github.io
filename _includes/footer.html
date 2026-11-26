@@ -1,5 +1,9 @@
 <footer class="site-footer">
   <div class="wrap">
-    <p>&copy; {{ site.time | date: '%Y' }} {{ site.title }} · 由 <a href="https://pages.github.com" target="_blank" rel="noopener">GitHub Pages</a> 驱动</p>
+    <div class="footer-stats">
+      <span class="stat-item">总访问 <b id="vercount_value_site_pv">-</b></span>
+      <span class="stat-item">总访客 <b id="vercount_value_site_uv">-</b></span>
+    </div>
+    <p class="footer-copy">&copy; {{ site.time | date: '%Y' }} {{ site.title }} · 由 <a href="https://pages.github.com" target="_blank" rel="noopener">GitHub Pages</a> 驱动</p>
   </div>
 </footer>
