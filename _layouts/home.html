@@ -2,9 +2,10 @@
 layout: default
 ---
 <section class="hero">
-  <h1>{{ site.title }}</h1>
-  <p class="tagline">&gt; {{ site.tagline }}</p>
-  <p class="intro">{{ site.description }}</p>
+  <p class="hero-greet">&gt; Hello, world.</p>
+  <h1 class="hero-title">{{ site.title }}</h1>
+  <p class="hero-tagline">{{ site.tagline }}</p>
+  <p class="hero-desc">{{ site.description }}</p>
 </section>
 
 <section class="post-list">
@@ -12,16 +13,18 @@ layout: default
   {% if site.posts.size == 0 %}
     <p class="empty">还没有文章，敬请期待。</p>
   {% else %}
-  <ul>
+  <div class="post-cards">
     {% for post in site.posts %}
-    <li class="post-item">
-      <span class="post-date">{{ post.date | date: "%Y-%m-%d" }}</span>
-      <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title }}</a>
-      {% if post.excerpt %}
-      <p class="post-excerpt">{{ post.excerpt | strip_html | normalize_whitespace | truncate: 120 }}</p>
-      {% endif %}
-    </li>
+    <a class="post-card" href="{{ post.url | relative_url }}">
+      <div class="post-card-head">
+        <time class="post-card-date">{{ post.date | date: "%Y-%m-%d" }}</time>
+        {% if post.categories.size > 0 %}<span class="post-card-cat">{{ post.categories | first }}</span>{% endif %}
+      </div>
+      <h3 class="post-card-title">{{ post.title }}</h3>
+      <p class="post-card-excerpt">{{ post.excerpt | strip_html | normalize_whitespace | truncate: 110 }}</p>
+      <span class="post-card-more">阅读全文 &rarr;</span>
+    </a>
     {% endfor %}
-  </ul>
+  </div>
   {% endif %}
 </section>
